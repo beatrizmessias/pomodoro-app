@@ -1,12 +1,16 @@
 # Pomodoro App
-Pomodoro app with React and Electron
+A Pomodoro timer built with React and Electron.
 
-Tecnologies:
+The Pomodoro Technique is a time management method that uses timed intervals of focused work and short breaks to boost productivity.
+
+
+Technologies:
 - React
 - Electron
 
-Functionalities:
-- Start 50-minute session
-- Reset session
+
+Features:
+- Start 50-minute focus session
+- Reset focus session
 - Start 10-minute break
 - Reset break
