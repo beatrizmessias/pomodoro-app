@@ -9,20 +9,30 @@ body {
   font-family: 'Retrograde-Regular', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f0f0f0;
+  height: 100vh;
 }
 
-.home-container {
+.app-container {
   width: 400px;
   height: 430px;
-  background-image: url('./assets/background.png');
+  background-image: url('./assets/background-blue.png');
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 12px;
   box-sizing: border-box;
   text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: background-image 0.5s ease;
+}
+
+.app-container.background-green {
+  background-image: url('./assets/background-green.png');
 }
 
 .home-content {
@@ -33,61 +43,65 @@ body {
   height: 100%;
   width: 100%;
   padding-top: 60px;
-  padding-bottom: 20px;
   box-sizing: border-box;
 }
 
 .encouragement-text {
   font-size: 1.25rem;
-  color: #b1cad8;
+  color: #FFF5E1;
   margin-bottom: 0.5rem;
   animation: fadeIn 1s ease-in-out;
   transition: opacity 0.8s ease;
-
+  min-height: 30px;
 }
 
 .encouragement-text.hidden {
   opacity: 0;
 }
 
-.background {
-  background-image: url('./assets/background.png');
-}
-
 .home-controls {
   display: flex;
   justify-content: center;
-  margin: 0;
+  gap: 20px;
 }
 
 .image-button {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .image-button img {
   width: 100px;
+  height: auto;
+  display: block;
 }
 
 .home-timer {
   font-size: 60px;
-  color: #d09caf;
-  margin: 0;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  user-select: none;
 }
 
 .gif-image {
-  height:100px;
+  height: 100px;
+  margin-bottom: 20px;
 }
 
 .home-button {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .home-button img {
-  width: 60px;
+  width: 40px;
+  height: auto;
+  display: block;
+  margin-bottom: 15px;
 }
 
 .close-button {
@@ -97,9 +111,21 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
+  z-index: 10;
 }
 
 .close-button img {
   width: 24px;
   height: 24px;
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
