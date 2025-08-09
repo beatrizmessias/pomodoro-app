@@ -12,6 +12,7 @@ import pausaBtn from "./assets/pausa.png";
 import idleGif from "./assets/idle.gif";
 import focusGif from "./assets/focus.gif";
 import breakGif from "./assets/break.gif";
+import dingSound from "./assets/ding.mp3";
 import closeBtn from "./assets/close.png";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
   const [isBreak, setIsBreak] = useState(false);
   const [encouragement, setEncouragement] = useState("");
   const [image, setImage] = useState(playImg);
+  const dingAudio = new Audio(dingSound);
 
   const cheerMessages = [
     "Você consegue!",
@@ -37,7 +39,7 @@ function App() {
     "Relaxa um pouco!",
     "Respira fundo!",
     "Aproveita a pausa!",
-    "Você merece esse descanso!",
+    "Beba água!",
   ];
 
   // Encourage message updater
@@ -76,6 +78,19 @@ function App() {
     switchMode(false);
   }, []);
 
+  // meow sound
+  useEffect(() => {
+    if (timeLeft === 0 && isRunning) {
+      dingAudio.play().catch(err => {
+        console.error("Reprodução do áudio falhou:", err);
+      });
+      setIsRunning(false); // Optional: auto-stop the timer
+      setImage(playImg); // Reset to play button
+      setGifImage(idleGif); // Reset to idle gif
+      setTimeLeft(isBreak ? 10 * 60 : 50 * 60);
+    }
+  })
+
   const formatTime = (seconds: number): string => {
     const m = Math.floor(seconds / 60)
       .toString()
@@ -105,14 +120,22 @@ function App() {
       setGifImage(idleGif);
       setImage(playImg);
     }
-  };
+  }
+
+  const handleCloseClick = () => {
+    if (window.electronAPI?.closeApp) {
+      window.electronAPI.closeApp();
+    } else {
+      console.warn("Electron API não está disponível");
+    }
+  }
 
   const containerClass = `app-container ${isRunning ? "background-green" : ""}`;
 
   return (
     <div className={containerClass} style={{ position: "relative" }}>
       <div>
-        <button className="close-button">
+        <button className="close-button" onClick={handleCloseClick}>
           <img src={closeBtn} alt="Fechar" />
         </button>
       </div>
