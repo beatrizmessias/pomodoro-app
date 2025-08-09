@@ -36,16 +36,14 @@
       "buildResources": "assets"
     },
     "mac": {
-      "target": "dmg",
-      "icon": "src/assets/icon.icns"
+      "target": "dmg"
     },
     "win": {
       "target": "nsis",
-      "icon": "src/assets/icon.icns"
+      "icon": "src/assets/icon.ico"
     },
     "linux": {
-      "target": "AppImage",
-      "icon": "src/assets/icon.icns"
+      "target": "AppImage"
     }
   },
   "eslintConfig": {
