@@ -48,7 +48,7 @@ body {
 
 .encouragement-text {
   font-size: 1.25rem;
-  color: #FFF5E1;
+  color: #ffffff;
   margin-bottom: 0.5rem;
   animation: fadeIn 1s ease-in-out;
   transition: opacity 0.8s ease;
@@ -62,7 +62,7 @@ body {
 .home-controls {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .image-button {
@@ -86,8 +86,8 @@ body {
 }
 
 .gif-image {
-  height: 100px;
-  margin-bottom: 20px;
+  height: 110px;
+  margin-bottom: 10px;
 }
 
 .home-button {
@@ -101,7 +101,7 @@ body {
   width: 40px;
   height: auto;
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .close-button {
