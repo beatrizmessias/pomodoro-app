@@ -12,9 +12,7 @@
 /build
 
 # Electron build output
- /dist/
- /release/
- /out/
+ /dist
 
 # misc
 .DS_Store
